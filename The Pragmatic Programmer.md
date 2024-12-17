@@ -10,6 +10,15 @@
     - [5. Good-Enough Software](#5-good-enough-software)
     - [6. Your Knowledge Portfolio](#6-your-knowledge-portfolio)
     - [7. Communicate!](#7-communicate)
+  - [Chapter 2: A Pragmatic Approach](#chapter-2-a-pragmatic-approach)
+    - [8. The Essence of Good Design](#8-the-essence-of-good-design)
+    - [9. DRY—The Evils of Duplication](#9-drythe-evils-of-duplication)
+    - [10. Orthogonality](#10-orthogonality)
+    - [11. Reversibility](#11-reversibility)
+    - [12. Tracer Bullets](#12-tracer-bullets)
+    - [13. Prototypes and Post-it Notes](#13-prototypes-and-post-it-notes)
+    - [14. Domain Languages](#14-domain-languages)
+    - [15. Estimating](#15-estimating)
 
 ---
 
@@ -212,3 +221,221 @@ Tip 13: Build Documentation In, Don't Bolt In On
 
 - Comment code to explain purpose, goals, and trade-offs; avoid redundant comments that duplicate
   what the code already shows.
+
+## Chapter 2: A Pragmatic Approach
+
+### 8. The Essence of Good Design
+
+- Experts share endless advice on software design, but here's a fresh insight the authors have
+  recently discovered.
+
+``` md
+Tip 14: Good Design Is Easier to Change Than Bad Design
+```
+
+- Good design adapts to users; for code, it means being Easier to Change (ETC), the core of all
+  design principles.
+- ETC guides decisions in software design. Reinforce it by asking, “Did this make the system easier
+  to change?” and trust common sense.
+- Make code replaceable to handle unforeseen changes and develop instincts by tracking decisions and
+  learning from future changes.
+
+### 9. DRY—The Evils of Duplication
+
+- Maintenance starts during development, not post-release; avoid duplicating knowledge to ensure
+  maintainability and embrace DRY.
+- Every piece of knowledge must have a single, unambiguous, authoritative representation within a
+  system.
+
+``` md
+Tip 15: DRY—Don't Repeat Yourself
+```
+
+- DRY isn't just about avoiding code duplication; it's about eliminating redundant expressions of
+  knowledge or intent.
+- Types of duplication:
+  - Duplication in Code: Identical code isn't a DRY violation if it represents distinct knowledge;
+    coincidence isn't duplication.
+  - Duplication in Documentation: Comments should add value, not compensate for poor naming or
+    layout; clear names and source details uphold DRY.
+    - Data structures hold knowledge; DRY can be violated for performance, but keep such impacts
+      localized within the class.
+  - Representational Duplication: Interfacing with external systems introduces unavoidable DRY
+    violations, but these can be mitigated with careful management.
+  - Interdeveloper Duplication: Takes place when multiple team members, either on the same team or
+    across different teams, replicate the same information.
+
+### 10. Orthogonality
+
+- Orthogonality means independence; in systems, changes in one part (e.g., UI) don't affect another
+  (e.g., database).
+
+``` md
+Tip 17: Eliminate Effects Between Unrelated Things
+```
+
+- Benefits of Orthogonality:
+  - Gain Productivity:
+    - Orthogonal components simplify development, promote reuse, reduce testing, and enhance
+      functionality with minimal effort.
+  - Reduce Risk:
+    - Orthogonality reduces risks, simplifies fixes, improves testing, and minimizes dependency on
+        specific vendors or platforms.
+- Design
+  - Orthogonal systems use modular, layered components, enabling abstraction, flexibility, and
+    reduced dependency risks.
+  - Test orthogonal design by ensuring changes affect only one module.
+  - Avoid dependencies on uncontrollable external identifiers.
+- Toolkits & Libraries: Preserve orthogonality by isolating third-party toolkit dependencies.
+- Coding: There are several techniques you can use to maintain orthogonality,
+  - Write decoupled, shy code: minimize dependencies, follow the Law of Demeter, and isolate
+    implementation details.
+  - Avoid global data: pass context explicitly to modules to reduce dependencies and improve
+    maintainability.
+  - Avoid functions with similar code: Duplicate code is a symptom of structural problems.
+- Testing: Orthogonal systems simplify testing by enabling easier module-level tests and better bug
+  localization.
+- Documentation: Orthogonal documentation allows appearance changes without altering content.
+- Orthogonality reduces interdependency, complementing the DRY principle to create flexible,
+  maintainable systems.
+
+### 11. Reversibility
+
+- Avoid a narrow mindset in projects; critical decisions are hard to reverse and can lead to major
+  setbacks.
+- Adapt to changes by abstracting decisions and preparing for contingencies, as they are rarely
+  permanent.
+
+``` md
+Tip 18: There Are No Final Decisions
+```
+
+- Ensure flexibility in architecture, deployment, and vendor integration by using abstraction and
+  modular design.
+
+``` md
+Tip 19: Forgo Following Fads
+```
+
+### 12. Tracer Bullets
+
+- Unfamiliar tools and changing environments introduce unpredictability in projects.
+- Tracer bullet development provides immediate feedback in a shifting environment, improving chances
+  of hitting the target.
+- In code, tracer bullet focus on key requirements and high-risk areas for quick feedback early in
+  development.
+
+``` md
+Tip 20: Use Tracer Bullets to Find the Target
+```
+
+- Tracer code is maintainable and incremental, allowing early feedback and adjustments, unlike the
+  heavy engineering approach.
+- The tracer code approach has many benefits:
+  - Users get to see something working early
+  - Developers build a structure to work in
+  - You have an integration platform
+  - You have something to demonstrate
+  - You have a better feel for progress
+
+- Tracer Bullets Don't Always Hit Their Target
+  - Tracer bullets help adjust direction when uncertain, allowing quick changes with lean
+    development to stay on target.
+  - Tracer code allows quick, cost-effective feedback, ensuring users see a real, functional version
+    of the application.
+
+- Tracer Code versus Prototyping
+  - Tracer code differs from prototyping by being reusable and maintainable, rather than discarded
+    after exploring concepts.
+  - Prototyping helps explore ideas quickly, but the code is discarded after decisions are made.
+  - Whereas, tracer code provides a framework for integrating components and evolving functionality,
+    ensuring system consistency over time.
+
+### 13. Prototypes and Post-it Notes
+
+- Prototypes test ideas cheaply and quickly, using varied materials like notes, drawings, or
+  mock-ups to address specific questions.
+- Prototype anything that hasn't been tried before, that is critical to the system, anything that's
+  unproven, experimental or doubtful. It can be anything that you aren't comfortable with.
+- Prototyping's value is in the lessons learned, not the code produced.
+
+``` md
+Tip 21: Prototype to Learn
+```
+
+- How to Use Prototypes
+  - A prototype can ignore,
+    - Correctness: You may be able to use dummy data where appropriate.
+    - Completeness: The prototype may function only in a very limited sense.
+    - Robustness: Error checking is likely to be incomplete or missing entirely.
+    - Style: Prototype code shouldn't have much in the way of comments or documentation.
+
+- Prototyping Architecture
+  - Prototypes model entire systems without needing fully functional modules, using tools like
+    whiteboards or Post-its to visualize the architecture.
+  - Specific areas you may want to look for in the architectural prototype:
+    - Are the responsibilities of the major areas well-defined and appropriate?
+    - Are the collaborations between major components well-defined?
+    - Is coupling minimized?
+    - Can you identify potential sources of duplication?
+    - Are interface definitions and constraints acceptable?
+    - Does every module have an access path to the data it needs during execution? Does it have that
+      access when it needs it?
+
+- Clarify that code-based prototypes are disposable and incomplete to prevent misconceptions and
+  avoid premature deployment.
+
+### 14. Domain Languages
+
+- Programming languages shape problem-solving and communication, often reflecting the vocabulary and
+  logic of their problem domains.
+
+``` md
+Tip 22: Program Close to the Problem Domain
+```
+
+### 15. Estimating
+
+- By learning to estimate, you develop intuitive estimation skills to gauge feasibility, assess
+  practicality, and identify optimization needs effortlessly.
+
+``` md
+Tip 23: Estimate to Avoid Surprises
+```
+
+- How Accurate is Accurate enough?
+  - Estimates vary in accuracy, so consider context and units carefully to set expectations
+    appropriately.
+
+- Where do Estimates come from?
+  - For better estimates, consult those with relevant experience before building detailed models.
+  - Understand What's Being Asked: Start by understanding the scope before estimating.
+  - Build a Model of the System: Building a rough mental model for estimation helps reveal patterns.
+  - Break the Model into Components: These affect how various components contribute to the overall
+    estimation.
+  - Give Each Parameter a Value: Assign values to parameters, focusing on those with the most
+    impact.
+  - Calculate the Answers: Run multiple calculations and focus on key parameters.
+  - Keep Track of Your Estimating Prowess: Analyze errors to improve future estimates by
+    understanding mismatched parameters or flawed models.
+
+- Estimating Project Schedules
+  - Real-world estimates use scenario ranges such as optimistic, most likely and a pessimistic
+    estimate. Using a range of values reduces estimation errors, but simply relying on formulas for
+    large tasks may still lead to inaccurate estimates.
+  - Estimate timelines through experience by practicing incremental development:
+    - Check requirements
+    - Analyze and prioritize risks
+    - Design, implement, integrate
+    - Validate with the users, and
+    - Repeat
+  - Refine project estimates iteratively; use each cycle's review to adjust timelines and improve
+    schedule confidence.
+
+``` md
+Tip 24: Iterate the Schedule with the Code
+```
+
+- What to Say when asked for an estimate?
+  - Say "I'll get back to you." Taking time to review the steps in this section leads to better
+    estimates than quick responses.
