@@ -19,6 +19,14 @@
     - [13. Prototypes and Post-it Notes](#13-prototypes-and-post-it-notes)
     - [14. Domain Languages](#14-domain-languages)
     - [15. Estimating](#15-estimating)
+  - [Chapter 3: The Basic Tools](#chapter-3-the-basic-tools)
+    - [16. The Power of Plain Text](#16-the-power-of-plain-text)
+    - [17. Shell Games](#17-shell-games)
+    - [18. Power Editing](#18-power-editing)
+    - [19. Version Control](#19-version-control)
+    - [20. Debugging](#20-debugging)
+    - [21. Text manipulation](#21-text-manipulation)
+    - [22. Engineering Daybooks](#22-engineering-daybooks)
 
 ---
 
@@ -221,6 +229,8 @@ Tip 13: Build Documentation In, Don't Bolt In On
 
 - Comment code to explain purpose, goals, and trade-offs; avoid redundant comments that duplicate
   what the code already shows.
+
+---
 
 ## Chapter 2: A Pragmatic Approach
 
@@ -439,3 +449,188 @@ Tip 24: Iterate the Schedule with the Code
 - What to Say when asked for an estimate?
   - Say "I'll get back to you." Taking time to review the steps in this section leads to better
     estimates than quick responses.
+
+---
+
+## Chapter 3: The Basic Tools
+
+### 16. The Power of Plain Text
+
+- Plain text is made up of printable characters in a form that conveys information.
+- Plain text is ideal for persistent knowledge storage, enabling easy manipulation and
+  self-describing data independent of applications.
+
+``` md
+Tip 25: Keep Knowledge in Plain Text
+```
+
+- The Power of Text
+  - Insurance Against Obsolescence: Human-readable, self-describing data outlives applications,
+    remaining usable and parseable even with partial format knowledge.
+  - Leverage: Plain text is universally compatible with tools like version control, editors, and
+    command-line utilities.
+  - Easier Testing: Plain text simplifies creating, updating test data and analyzing regression test
+    outputs using shell commands or simple scripts.
+- In diverse environments, plain text's benefits outweigh drawbacks, serving as a universal standard
+  for communication.
+
+### 17. Shell Games
+
+- The command shell empowers programmers to combine tools, launch apps, query systems, and create
+  macros, offering unmatched flexibility.
+- GUIs are useful for simple tasks, but relying on them limits automation, customization, and the
+  full potential of available tools.
+- A benefit of GUIs is **WYSIWYG**—what you see is what you get. The disadvantage is
+  **WYSIAYG**—what you see is all you get.
+
+``` md
+Tip 26: Use the Power of Command Shells
+```
+
+### 18. Power Editing
+
+``` md
+Tip 27: Achieve Editor Fluency
+```
+
+- Fluency minimizes editing effort, enabling thoughts to flow seamlessly, like an experienced
+  driver’s instinctive control.
+- Moving Towards Fluency:
+  - Master Editor efficiency by identifying repetitive tasks, learning better methods, and
+    practicing them until instinctive.
+  - Enhance your editor with extensions to overcome limits.
+
+### 19. Version Control
+
+- Avoid network or cloud storage for project files—use proper version control to prevent conflicts,
+  corruption, and lost work.
+- Version control tracks changes, supports collaboration, aids audits, regenerates releases, and
+  merges edits seamlessly for any project.
+
+``` md
+Tip 28: Always Use Version Control
+```
+
+### 20. Debugging
+
+- Modern computer systems are still limited to doing what you tell them to do, not necessarily what
+  you want them to do.
+- Debugging is problem-solving, not blame-laying; focus on solutions over assigning fault or making
+  excuses.
+
+``` md
+Tip 29: Fix the Problem, Not the Blame
+```
+
+- A Debugging Mindset
+  - Adopt a calm mindset for debugging; set aside ego defenses, project pressures, and focus on
+    comfort and clarity.
+
+  ``` md
+  Tip 30: Don't Panic
+  ```
+
+  - Stay calm, avoid denial, and focus on root causes, not just symptoms; resist assumptions like
+    "it's impossible" when debugging.
+- Where to Start
+  - Start debugging with clean, warning-free code; focus on complex issues, and gather relevant data
+    as bug reports may lack precision.
+  - Avoid debugging coincidences; ensure accurate observations, and directly observe users for
+    detailed, reliable bug reports.
+- Debugging Strategies
+  - After forming a hypothesis, verify it by understanding the program's perspective and internal
+    behavior.
+  - Reproducing Bugs
+    - The best way to start fixing a bug is to make it reproducible. Then make it reproducible
+      ideally with a single command, to simplify debugging and avoid complex, lengthy steps.
+
+    ``` md
+    Tip 31: Failing Test Before Fixing Code
+    ```
+
+    ``` md
+    Tip 32: Read the Damn Error message
+    ```
+
+  - Bad Results
+    - Use a debugger to confirm bad results, trace call stacks, jot notes to track progress, and use
+      efficient approaches like binary search when needed.
+  - Sensitivity to Input Values
+    - When a program crashes on specific data, test locally, confirm the issue, then isolate
+      problematic input.
+  - Regressions Across Releases
+    - To trace production bugs, identify the specific code change that caused the issue to
+      streamline debugging.
+  - The Binary Chop
+    - To debug a stack trace, use binary search: check the middle frame, narrow down based on the
+      error, and repeat.
+    - To debug dataset issues, split the data and test subsets, repeating the process until
+      identifying the smallest set causing the problem.
+    - To find a bug in releases, create a failing test, then use binary search across versions to
+      narrow the issue, aided by version control tools.
+  - Logging and/or Tracing
+    - Debuggers show the current state, but tracing statements are crucial for tracking errors over
+      time, especially in time-sensitive systems.
+    - Add consistent tracing statements as you move through the call tree, allowing for easy parsing
+      and deeper insight into the code's execution.
+  - Rubber Ducking
+    - Explaining a problem to someone else (or even an object) helps identify issues by forcing you
+      to verbalize assumptions and gain new insights.
+  - Process of Elimination
+    - When debugging, assume the issue is with your application code, not the OS, compiler, or
+      third-party products, and rule out your code first.
+
+    ``` md
+    Tip 33: "select" Isn't Broken
+    ```
+
+    - If a system breaks after one change, that change is likely the cause, even if it seems
+      unlikely. New software versions can introduce unexpected issues.
+- The Element of Surprise
+  - When surprised by a bug, reassess your assumptions and test boundary conditions. Even long-used
+    code may still contain hidden issues.
+  - Surprising failures often mean your assumptions are wrong. Don't skip over code you trust; prove
+    it works in the current context and with the data.
+
+  ``` md
+  Tip 34: Don't Assume It-Prove It
+  ```
+
+  - When fixing a surprise bug, investigate why it wasn't caught earlier. Update tests or add better
+    parameter checks to catch similar issues sooner.
+  - Look for other areas vulnerable to the same bug and fix them. If fixing took long, consider
+    improving testing hooks or adding a log file analyzer for future ease.
+  - If the bug stems from a wrong assumption, discuss it with the team to prevent misunderstandings.
+    Addressing it ensures fewer surprises in the future.
+- Debugging Checklist
+  - Determine if the reported problem is a direct result of the underlying bug or just a symptom of
+    a deeper issue.
+  - Determine if the bug is in the framework, the OS, or your own code by systematically ruling out
+    each possibility.
+  - Explain the problem to a coworker, describe the issue step by step, including the symptoms,
+    possible causes, and the troubleshooting steps you've taken so far.
+  - If the suspect code passes its unit tests, assess whether the tests are thorough enough.
+    Consider running them with the problematic data to check for edge cases.
+  - Check if the conditions causing the bug exist elsewhere in the system. Look for potential hidden
+    bugs that could emerge under similar circumstances.
+
+### 21. Text manipulation
+
+- Text manipulation languages, like awk, sed, Python, and Ruby, are powerful tools for quick
+  prototyping and automation. Though tricky, they can significantly reduce development time and
+  enable experimentation.
+
+``` md
+Tip 35: Learn a Text Manipulation Language
+```
+
+### 22. Engineering Daybooks
+
+- An engineering daybook is used to record one's work, ideas, lessons, and readings, often jotting
+  notes during conversations.
+- We could use daybooks for meeting notes, tracking work, debugging values, reminders, and recording
+  ideas.
+- The daybook aids memory, stores unrelated ideas for later, and helps reflect and identify mistakes
+  through note-taking.
+
+---
