@@ -27,6 +27,12 @@
     - [20. Debugging](#20-debugging)
     - [21. Text manipulation](#21-text-manipulation)
     - [22. Engineering Daybooks](#22-engineering-daybooks)
+  - [Chapter 4: Pragmatic Paranoia](#chapter-4-pragmatic-paranoia)
+    - [23. Design by Contract](#23-design-by-contract)
+    - [24. Dead Programs Tell No Lies](#24-dead-programs-tell-no-lies)
+    - [25. Assertive Programming](#25-assertive-programming)
+    - [26. How to Balance Resources](#26-how-to-balance-resources)
+    - [27. Don't Outrun Your Headlights](#27-dont-outrun-your-headlights)
 
 ---
 
@@ -632,5 +638,150 @@ Tip 35: Learn a Text Manipulation Language
   ideas.
 - The daybook aids memory, stores unrelated ideas for later, and helps reflect and identify mistakes
   through note-taking.
+
+---
+
+## Chapter 4: Pragmatic Paranoia
+
+``` md
+Tip 36: You Can't Write Perfect Software
+```
+
+- No one in the brief history of computing has ever written a piece of perfect software. It’s
+  unlikely that you’ll be the first.
+- Good drivers anticipate trouble; good coders do the same, defending against others' and their own
+  potential mistakes.
+
+### 23. Design by Contract
+
+- Contracts define mutual rights, responsibilities, and repercussions—an idea that applies equally
+  to software module interactions.
+- DBC
+  - Design by Contract (DBC) ensures program correctness by documenting software modules' rights,
+    responsibilities, and expected outcomes. The expectations and claims as follows:
+    - Preconditions: Callers must ensure valid data to meet those requirements before invoking them.
+    - Postconditions: Ensuring guaranteed outcomes and proper termination without infinite loops.
+    - Invariants: They may break internally but must be restored before the routine exits.
+  - If preconditions are met, the routine guarantees all postconditions and invariants will be true
+    upon completion.
+
+``` md
+Tip 37: Design with Contracts
+```
+
+- Orthogonality recommended writing “shy” code. Here, the emphasis is on “lazy” code: : be strict in
+  what you will accept before you begin, and promise as little as possible in return.
+- Implementing DBC
+  - Defining input range, boundaries, and promises to deliver (and what it doesn't) improves
+    software design.
+  - Assertions
+    - Documenting assumptions helps, but compiler-enforced contracts provide greater reliability.
+      Assertions aid but lack inheritance support and automation.
+- DBC and Crashing Early: Use DBC to validate conditions, crash early, and get detailed errors,
+  avoiding hidden bugs.
+- Semantic Invariants
+  - You can use semantic invariants to express inviolate requirements, a kind of "philosophical
+    contract."
+  - Distinguish semantic invariants from changeable policies; document invariants clearly for
+    consistent understanding and adherence.
+
+### 24. Dead Programs Tell No Lies
+
+- Defensive coding catches unexpected errors early, ensuring data integrity and handling the
+  "impossible" with proper error checks and defaults.
+- Pragmatic Programmers tell themselves that if there is an error, something very, very bad has
+  happened.
+- Catch and Release Is For Fish
+  - Avoid catching all exceptions and re-throwing it; it reduces verbosity, uncouples code, and
+  ensures new exceptions propagate automatically without updates.
+
+``` md
+Tip 38: Crash Early
+```
+
+- Crash, Don't Trash
+  - Early crashing avoids further damage.
+  - Terminate programs when the impossible occurs; continuing risks unreliable actions. Handle
+    cleanups and exit immediately.
+  - A dead program normally does a lot less damage than a crippled one.
+
+### 25. Assertive Programming
+
+- Avoid self-deception in coding; assumptions like "this can never happen" lead to unpreparedness
+  and potential errors.
+
+``` md
+Tip 39: Use Assertions to Prevent the Impossible
+```
+
+- Use assertions to check "impossible" conditions, ensuring parameters and results meet expectations
+  for robust, error-free code.
+- Don't use assertions in place of real error handling. Assertions check for things that should
+  never happen.
+- Assertions with side effects can result in Heisenbug, where debugging code unintentionally causes
+  new errors or alters system behavior.
+- Leave Assertions Turned On
+  - Assertions should remain active in production to catch errors missed during testing, as bugs and
+    unexpected issues can arise in real environments.
+  - Disabling assertions in production is risky. If performance issues arise, only disable specific
+    critical assertions, leaving others active for safety.
+
+### 26. How to Balance Resources
+
+- Coding involves managing resources like memory, threads, and files by allocating, using, and then
+  deallocating them predictably.
+
+``` md
+Tip 40: Finish What You Start
+```
+
+- In many modern languages, you can scope the lifetime of a resource to an enclosed block of some
+  sort.
+
+``` md
+Tip 41: Act Locally
+```
+
+- Nest Allocations
+  - Deallocate resources in reverse order of allocation to avoid orphaning resources with references
+    to each other.
+  - Always allocate resources in the same order across your code to minimize the risk of deadlock.
+- Objects and Exceptions: Encapsulate resources in classes for auto-allocation and deallocation via
+  constructors/destructors, aiding exception-safe cleanup.
+- Balancing and Exceptions
+  - To ensure resource cleanup during exceptions, use variable scope or a try-finally block for
+    controlled deallocation.
+  - An Exception Antipattern: If resource allocation fails, deallocation in finally will act on an
+    unallocated resource. Therefore, consider allocating resources outside try-finally.
+- When You Can't Balance Resources
+  - For dynamic structures, set a clear ownership rule to define who manages memory allocation and
+    deallocation responsibilities. You can do this in three ways:
+    - The top-level structure must free its substructures, which recursively delete their own
+      contained data.
+    - Deallocating the top-level structure orphans any unreferenced substructures it pointed to.
+    - The top-level structure refuses to deallocate itself if it contains any substructures.
+- Checking the Balance: Pragmatic Programmers recommend using wrappers to track resource allocations
+  and deallocations, ensuring no memory leaks occur.
+
+### 27. Don't Outrun Your Headlights
+
+- Headlights have a limited range, like foresight in software development—beyond a point, visibility
+  diminishes, making planning harder.
+
+``` md
+Tip 42: Take Small steps—Always
+```
+
+- Take small steps, adjust based on feedback, and never exceed your feedback rate, it's your speed
+  limit in decision-making.
+- A task is too big if it requires guessing the future. Design for maintainability, but focus on
+  replaceability over speculation.
+- Black Swans
+  - Rare, unpredictable events shape history. Predicting the future is tricky—like past tech debates
+    that missed the rise of the web.
+
+``` md
+Tip 43: Avoid Fortune-Telling
+```
 
 ---
