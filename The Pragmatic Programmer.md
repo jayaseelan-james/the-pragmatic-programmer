@@ -33,6 +33,12 @@
     - [25. Assertive Programming](#25-assertive-programming)
     - [26. How to Balance Resources](#26-how-to-balance-resources)
     - [27. Don't Outrun Your Headlights](#27-dont-outrun-your-headlights)
+  - [Chapter 5: Bend, Or Break](#chapter-5-bend-or-break)
+    - [28. Decoupling](#28-decoupling)
+    - [29. Juggling the Real World](#29-juggling-the-real-world)
+    - [30. Transform Programming](#30-transform-programming)
+    - [31. Inheritance Tax](#31-inheritance-tax)
+    - [32. Configuration](#32-configuration)
 
 ---
 
@@ -280,6 +286,10 @@ Tip 15: DRY—Don't Repeat Yourself
     violations, but these can be mitigated with careful management.
   - Interdeveloper Duplication: Takes place when multiple team members, either on the same team or
     across different teams, replicate the same information.
+
+``` md
+Tip 16: Make It Easy to Reuse
+```
 
 ### 10. Orthogonality
 
@@ -783,5 +793,165 @@ Tip 42: Take Small steps—Always
 ``` md
 Tip 43: Avoid Fortune-Telling
 ```
+
+---
+
+## Chapter 5: Bend, Or Break
+
+- Code must be flexible to keep up with rapid change; rigid code risks becoming obsolete or
+  unfixable.
+
+### 28. Decoupling
+
+- Coupling makes code harder to change. For flexibility, minimize dependencies. Unlike bridges,
+  software should adapt, not stay rigid.
+
+``` md
+Tip 44: Decoupled Code is Easier to Change
+```
+
+- Watch for signs of coupling: unexpected dependencies, cascading changes, fear of edits, and
+  meetings where no one knows the impact.
+
+``` md
+Tip 45: Tell, Don't Ask
+```
+
+- Avoid decisions based on an object's internal state before updating it. This breaks encapsulation
+  and spreads implementation details.
+- Tell-don't-ask is a guideline, not a rule. In some cases, exposing key objects makes sense because
+  they have their own identity.
+- Law of Demeter
+  - The Law of Demeter (LoD) reduces coupling and keeps functions clean. A method in class C should
+    only call:
+    - Its own instance methods
+    - Its parameters
+    - Methods of objects that it creates
+    - Global variables
+
+``` md
+Tip 46: Don't Chain Method Calls
+```
+
+- The one-dot rule can be ignored for stable libraries, but app code and third-party APIs are likely
+  to change and should be handled carefully.
+- Evils of Globalization
+  - Global data increases coupling, making changes risky and code harder to reuse or test. Clean
+    interfaces help decouple and simplify maintenance.
+  - Wrapping global data in a singleton does not remove coupling. Adding methods helps, but it is
+  still a single shared data source.
+
+``` md
+Tip 47: Avoid Global Data
+```
+
+- Any mutable external resource is global data. To avoid issues, always wrap databases, APIs, and
+  file systems in controlled code.
+
+``` md
+Tip 48: If It's Important Enough to be Global, Wrap It in an API
+```
+
+### 29. Juggling the Real World
+
+- Event-driven apps improve interactivity and efficiency but need a clear strategy to avoid messy,
+  tightly coupled code.
+- There are four strategies that can help:
+  - Finite State Machines: A state machine defines states, events per state, and transitions based
+    on those events.
+  - Observer Pattern: This lets observers register for events; the observable notifies them by
+    calling their functions.
+  - Publish/Subscribe: It improves observer pattern by using named channels to decouple and
+    asynchronously connect publishers and subscribers.
+  - Reactive Programming and Streams: Streams simplify handling events by treating them as data
+    collections, making it easier to trigger reactions in code.
+
+### 30. Transform Programming
+
+- Programs transform input to output, and focusing on this simplifies design, reduces errors, and
+  lowers coupling.
+
+``` md
+Tip 49: Programming Is About Code, But Programs are About Data
+```
+
+- Start with requirements, define inputs and outputs, then map steps. This top-down method reveals
+  transformations.
+
+``` md
+Tip 50: Don't Hoard State; Pass it Around
+```
+
+- The transformational model treats data as a flow, enabling reusable functions and reducing system
+  coupling.
+- Transformations avoid raw values; instead, they use data structures that indicate value validity.
+
+### 31. Inheritance Tax
+
+- Two styles of inheritance: Type combination (C++, Java); Organize behaviors (Ruby, JavaScript).
+- Inheritance is coupling. Inheritance couples child classes to parents and their ancestors, as well
+  as to code that uses the child.
+
+``` md
+Tip 51: Don't Pay Inheritance Tax
+```
+
+- Better Alternatives
+  - Interfaces and Protocols
+    - OO languages allow classes to implement multiple behaviors, like a Car class implementing
+      Drivable and Locatable.
+    - Declarations define required methods (e.g., getSpeed, stop) for classes implementing behaviors
+      like Drivable or Locatable, but add no code.
+    - Interfaces and protocols give us polymorphism without inheritance.
+
+  ``` md
+  Tip 52: Prefer Interfaces to Express Polymorphism
+  ```
+
+  - Delegation
+    - Inheritance leads to large classes with unused methods, losing control over the interface.
+
+  ``` md
+  Tip 53: Delegate to Services: Has-A Trumps Is-A
+  ```
+
+  - Mixins, Traits, Categories, Protocol Extensions, ...
+    - A mixin adds new functionality to classes without inheritance, combining original capabilities
+      with additional functions, even without source code access.
+    - The key idea is merging functionality between existing and new things through these
+      implementations.
+
+  ``` md
+  Tip 54: Use Mixins to Share Functionality
+  ```
+
+- Use the technique that best expresses your intent, and avoid unnecessary complexity or excess
+  baggage.
+
+### 32. Configuration
+
+- Externalize changing values to adapt code for different environments or customers, enabling
+  flexible, parameterized apps.
+
+``` md
+Tip 55: Parameterize Your App Using External Configuration
+```
+
+- Example configuration data include:
+  - Credentials for external services
+  - Logging levels and location
+  - IP address, port, and license keys
+- Static Configuration
+  - Store configuration in flat files (like YAML/JSON) or databases, depending on structure and
+    change frequency. Load as a global data structure at startup.
+  - Preferably, wrap configuration data in a thin API to decouple code from representation details,
+    avoiding direct global access.
+- Configuration as a Service
+  - Use a service API to store configuration data externally, rather than relying on flat files or
+    databases.
+  - Storing configuration behind a service API allows sharing, global updates, controlled access, a
+    UI for maintenance, and dynamic data.
+- Without external configuration, code lacks flexibility. In nature, lack of adaptation leads to
+  extinction.
 
 ---
