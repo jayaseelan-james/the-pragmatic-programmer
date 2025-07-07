@@ -39,6 +39,11 @@
     - [30. Transform Programming](#30-transform-programming)
     - [31. Inheritance Tax](#31-inheritance-tax)
     - [32. Configuration](#32-configuration)
+  - [Chapter 6: Concurrency](#chapter-6-concurrency)
+    - [33. Breaking Temporal Coupling](#33-breaking-temporal-coupling)
+    - [34. Shared State Is Incorrect State](#34-shared-state-is-incorrect-state)
+    - [35. Actors And Processes](#35-actors-and-processes)
+    - [36. Blackboards](#36-blackboards)
 
 ---
 
@@ -953,5 +958,77 @@ Tip 55: Parameterize Your App Using External Configuration
     UI for maintenance, and dynamic data.
 - Without external configuration, code lacks flexibility. In nature, lack of adaptation leads to
   extinction.
+
+---
+
+## Chapter 6: Concurrency
+
+- Concurrency is essential in real-world systems; without it, apps feel slow and underuse the hardware’s potential.
+- Temporal coupling limits flexibility by enforcing unnecessary code order, making systems harder to change and slower to respond.
+
+### 33. Breaking Temporal Coupling
+
+- Temporal coupling is about time in design—specifically concurrency and ordering—not just deadlines
+  or ship dates.
+- Linear thinking in code causes temporal coupling; decoupling time/order boosts flexibility, speed,
+  and system reliability.
+- Looking for Concurrency: Activity diagrams help analyze workflows, showing order and parallelism
+  to reduce unnecessary sequential steps.
+
+``` md
+Tip 56: Analyze Workflow to Improve Concurrency
+```
+
+- Opportunities for concurrency: Activity diagrams reveal concurrency, but design determines if it's
+  worth exploiting—like offloading time-consuming tasks.
+- Opportunities for parallelism: Concurrency is software-driven; parallelism uses hardware to run
+  independent tasks simultaneously and speed up work.
+
+### 34. Shared State Is Incorrect State
+
+``` md
+Tip 57: Shared State Is Incorrect State
+```
+
+- The issue isn't shared memory, but inconsistent views—non-atomic actions can lead to outdated or
+  incorrect decisions.
+- A semaphore controls access by allowing only one holder at a time-ensuring safe updates to shared
+  resources.
+- Concurrency issues can occur with any shared mutable resource, like files, databases, or services,
+  not just shared memory.
+
+``` md
+Tip 58: Random Failures Are Often Concurrency Issues
+```
+
+### 35. Actors And Processes
+
+- An actor is an independent unit with private state and a mailbox, processing messages one at a
+  time and updating state or creating new actors.
+- A process is a general-purpose virtual processor that can act like an actor when constrained by
+  design or convention.
+
+``` md
+Tip 59: Use Actors For Concurrency Without Shared State
+```
+
+- The actor model avoids shared state and explicit flow control, enabling concurrency across single,
+  multicore, or networked systems.
+
+### 36. Blackboards
+
+- Like detectives using a shared blackboard to coordinate clues, systems can use shared spaces to
+  manage tasks and communication.
+- Linda was an early blackboard system using typed tuples. Programs added and retrieved data via
+  pattern matching on the shared space.
+- A blackboard with a rules engine handles unordered data elegantly, triggering rules and feedback
+  loops as new facts are posted.
+
+``` md
+Tip 60: Use Blackboards to Coordinate Workflow
+```
+
+- Actor, blackboard, and microservice architectures reduce concurrency issues but add complexity;
+  central message tracking and strong tooling are essential.
 
 ---
