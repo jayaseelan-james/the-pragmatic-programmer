@@ -44,6 +44,15 @@
     - [34. Shared State Is Incorrect State](#34-shared-state-is-incorrect-state)
     - [35. Actors And Processes](#35-actors-and-processes)
     - [36. Blackboards](#36-blackboards)
+  - [Chapter 7: While You Are Coding](#chapter-7-while-you-are-coding)
+    - [37. Listen to Your Lizard Brain](#37-listen-to-your-lizard-brain)
+    - [38. Programming by Coincidence](#38-programming-by-coincidence)
+    - [39. Algorithm Speed](#39-algorithm-speed)
+    - [40. Refactoring](#40-refactoring)
+    - [41. Test to Code](#41-test-to-code)
+    - [42. Property-Based Testing](#42-property-based-testing)
+    - [43. Stay Safe Out There](#43-stay-safe-out-there)
+    - [44. Naming Things](#44-naming-things)
 
 ---
 
@@ -1030,5 +1039,274 @@ Tip 60: Use Blackboards to Coordinate Workflow
 
 - Actor, blackboard, and microservice architectures reduce concurrency issues but add complexity;
   central message tracking and strong tooling are essential.
+
+---
+
+## Chapter 7: While You Are Coding
+
+- Coding isn't just mechanical; thoughtful decisions at every step are crucial to building correct,
+  efficient, and maintainable software or the project may fail.
+
+### 37. Listen to Your Lizard Brain
+
+- Instincts are nonverbal responses shaped by experience. As you program, tacit knowledge builds,
+  guiding actions without conscious thought through subtle feelings.
+- The trick is first to notice it is happening, and then to work out why.
+- Fear Of The Blank Page:
+  - Nagging doubts often signal hidden issues your experience has sensed. Trust those feelings, as
+    they can guide you before problems become clear and improve your performance.
+  - Fear of making mistakes is natural. Developers often tie their self-worth to their code, leading
+    to doubt or imposter syndrome when a task feels overwhelming.
+- Fighting Yourself: If coding feels unusually hard, your instincts may be warning you of deeper
+  issues like bad design or the wrong problem. Listen to that feedback instead of pushing through.
+- How To Talk Lizard:
+  - Step away from the code and do something mindless to let your brain reset. With time, ideas may
+  surface on their own and lead to a clear *aha* moment.
+  - If stuck, externalize the problem by doodling or explaining it. If that fails, start prototyping
+  to tell your brain the task is low stakes and reduce pressure.
+
+``` md
+Tip 61: Listen to Your Inner Lizard
+```
+
+- It's Playtime!: Call it a prototype to lower pressure and explore freely. Resolve doubts, take
+  breaks if needed, then start fresh and write clean, final code once clarity returns.
+- Not Just Your Code: When reading others' code, note odd patterns and try to see their reasoning.
+  Understanding their instincts makes the code easier to follow and may teach you something new.
+- Not Just Code: Trusting your instincts applies to design too. If something feels wrong, pause and
+  explore it. Speaking up early can help you spot and avoid deeper issues.
+
+### 38. Programming by Coincidence
+
+- Developers face daily traps. Avoid drawing false conclusions or relying on luck. Focus on
+  deliberate, thoughtful coding instead of programming by coincidence.
+- Code that seems to work by chance can lead to confusion and failure later. Without understanding
+  why it works, fixing issues becomes nearly impossible. Avoid false confidence.
+- Examples:
+  - Accidents of Implementation: Don't rely on accidental behavior or undocumented details. Use
+    clear, documented interfaces and note any assumptions to avoid bugs, failures, and performance
+    issues later.
+  - Close Enough Isn't: Fixing values based on small, consistent errors can hide deeper flaws.
+    Relying on coincidences leads to unreliable code and masks real design issues.
+  - Phantom Patterns: Intermittent bugs or inconsistent test results may hint at real issues like
+    race conditions or environment differences, not just coincidence. Don't assume it, prove it.
+  - Accidents of Context: Avoid assuming context that may not always apply. Code should not depend
+    on specific environments, user types, or copied solutions that only appear to work.
+  - Implicit Assumptions: Coincidences can mislead at any stage, especially testing. Assumptions
+    without proof or clear documentation often conflict and are a major cause of project failure.
+
+``` md
+Tip 62: Don't Program by Coincidence
+```
+
+- How To Program Deliberately:
+  - Stay aware of your actions.
+  - If you can't clearly explain the code to a junior, you may be depending on coincidences.
+  - Avoid coding blindly. If you don't understand why something works, you won't know why it fails.
+  - Work from a clear plan, whether it's in your head or on a whiteboard.
+  - Depend only on what is proven. If reliability is unclear, assume it will fail.
+  - Document assumptions clearly. [Design by Contract](#23-design-by-contract) helps clarify.
+  - Test your assumptions, not just your code. Do not guess, verify them by [Assertive
+    programming](#25-assertive-programming).
+  - Focus on the important parts first. Without a solid base, extras won't matter.
+  - Do not let old code limit new work. Replace or [refactor](#40-refactoring) when needed to stay
+    effective.
+
+### 39. Algorithm Speed
+
+- Pragmatic Programmers estimate algorithm resources like time and memory using analysis, Big-O
+  notation, and common sense to make better performance decisions.
+- Big-O Notation:
+  - Big-O notation expresses algorithm complexity by showing how runtime grows with input size. For
+    example, O(n²) means time increases roughly fourfold if input size doubles.
+  - It gives an upper bound on growth. It drops low-order terms and constants, focusing on the
+    highest-order term since it dominates as input size increases.
+  - Big-O shows how performance changes with input size, not actual speed.
+- Common Sense Estimation:
+  - Simple Loops:
+    - A loop running from 1 to n is typically **O(n)**, meaning time grows linearly with input.
+      Examples include searches, finding a max value, and creating checksums.
+  - Nested Loops:
+    - Nested loops usually lead to **O(n²)** complexity, as time depends on both loop limits. This
+      is common in basic sorts like bubble sort, where each element is compared repeatedly.
+  - Binary Chop:
+    - If an algorithm halves the input each loop, it's likely **O(log n)**. Examples include binary
+      search, binary tree traversal, and finding the first set bit in a word.
+  - Divide and Conquer:
+    - Divide-and-conquer algorithms like quicksort are typically **O(n log n)**, as they split
+      input, process halves, and combine results. Quicksort averages O(n log n) despite worse cases.
+  - Combinatoric:
+    - Algorithms exploring permutations can have **O(Cⁿ)** time, growing explosively with input.
+
+``` md
+Tip 63: Estimate the Order of Your Alogorithms
+```
+
+- Theory matters, but real-world use reveals the truth. Test with large inputs and varied cases,
+  because only production performance with real data truly counts.
+
+``` md
+Tip 64: Test Your Estimates
+```
+
+- Best Isn't Always Best:
+  - Choose algorithms pragmatically. The fastest one is not always the best for the job. Complex
+    algorithms can have setup costs that may outweigh their benefits for small inputs.
+  - Avoid premature optimization. Focus on improving code only after confirming the algorithm is a
+    true bottleneck worth your time and effort.
+
+### 40. Refactoring
+
+- As programs grow, revisiting and reworking earlier code is natural. Code evolves over time and
+  should not be treated as static or unchangeable.
+- Restructuring includes rewriting and re-architecting code. A specific subset of this process,
+  focused on improving structure without changing behavior, is called *refactoring*.
+- When Should You Refactor?
+  - Duplication: You've discovered a violation of the [DRY](#9-drythe-evils-of-duplication)
+    principle.
+  - Non-orthogonal design: You've discovered something that could be made more
+    [orthogonal](#10-orthogonality).
+  - Outdated knowledge: Requirements change and understanding grows, so code must evolve to stay
+    effective.
+  - Usage: Real use reveals true priorities, shifting focus from once vital features to what matters
+    now.
+  - Performance: Shifting functionality within the system can help boost performance where it's most
+    needed.
+  - The Tests Pass: Refactoring works best in small steps with tests. Once new code passes, it's the
+    perfect time to clean it up.
+
+``` md
+Tip 65: Refactor Early, Refactor Often
+```
+
+- How Do You Refactor?
+  - Refactoring is thoughtful redesign. It should be done slowly and carefully, not with reckless
+    changes. Martin Fowler's simple tips to refactor safely and avoid causing more harm than good:
+    - Don't try to refactor and add functionality at the same time.
+    - Have solid tests before refactoring and run them often to catch any breakage early.
+    - Refactor in small, careful steps like moving fields or renaming variables. Test each change to
+      prevent long debugging sessions.
+
+### 41. Test to Code
+
+``` md
+Tip 66: Testing Is Not About Finding Bugs
+```
+
+- By thinking about testing first, you can shape better code. Without writing any logic, test
+  planning may lead to interesting discoveries.
+
+``` md
+Tip 67: A Test Is the First User of Your Code
+```
+
+- Tests Drive Coding:
+  - Testing guides coding, reduces code coupling by making functions easier to test, and forces
+    deeper understanding before implementation.
+  - Thinking about tests early reveals clearer logic, simplifies code, and helps you handle
+    boundaries and errors better before writing a single line.
+- Test-Driven Development: The basic cycle of TDD is:
+  - Decide on a small piece of functionality you want to add.
+  - Write a test that will pass once that functionality is implemented.
+  - Run all tests. Verify that the only failure is the one you just wrote.
+  - Write minimal code to pass the test, then check that all tests run without errors.
+  - Refactor your code to improve it, and ensure all tests still pass after the changes.
+- Bottom-Up vs. Top-Down vs. The Way You Should Do It:
+  - Top-down design breaks problems into smaller parts from the top level. Bottom-up builds layers
+    of abstraction from the ground up until the problem is solved.
+  - Top-down and bottom-up fail because we rarely know everything at the start. The best way to
+    build software is incrementally, learning and involving the customer as you go.
+
+``` md
+Tip 68: Build End-to-End, Not Top-Down or Bottom Up
+```
+
+- Take small, test-driven steps when the problem is unclear, but stay focused, or you risk
+  over-polishing easy parts and losing sight of your goal.
+- Unit Tests: Unit testing in software is like chip-level hardware testing: test modules in
+  isolation using controlled setups, checking results against known or past values.
+- Testing Against Contract: Unit testing should check if code honors its contract, ensuring it works
+  as expected and prevents hidden issues that could cause major problems later in the project.
+
+``` md
+Tip 69: Design to Test
+```
+
+- Ad-hoc testing is manual, like using console logs or a REPL. If it reveals a bug, turn it into a
+  formal test to prevent future issues.
+- Build A Test Window: Some bugs only show in production. Use structured logs, hotkeys, URLs, or
+  feature switches to expose diagnostics and support debugging without affecting users.
+- Culture of Testing:
+  - All software is tested eventually, either by you or by the user. Testing it thoroughly now
+    prevents future issues and support effort.
+  - Like production code, test code must be clean, decoupled, and reliable to ensure long-term
+    stability.
+
+``` md
+Tip 70: Test Your Software, or Your Users Will
+```
+
+### 42. Property-Based Testing
+
+- Property-based testing uses contracts and invariants to automate checks, ensuring code behaves
+  correctly across varied inputs and consistent internal rules.
+
+``` md
+Tip 71: Use Property-Based Tests to Validate Your Assumptions
+```
+
+- Property-based testing is powerful but unpredictable. It can reveal hidden bugs, though diagnosing
+  failures can be challenging due to the randomness of generated inputs.
+- So, when a property-based test fails, extract the input and create a unit test. This isolates the
+  issue and ensures it won't reappear, since property-based inputs are random.
+- Property-based tests, like unit tests, shape how you think about code. They focus on invariants
+  and contracts, revealing edge cases and inconsistent states. Use both for stronger testing.
+
+### 43. Stay Safe Out There
+
+- When your code "works," you're only halfway done. You still need to test for failures, bad inputs,
+  resource issues, and even malicious external actions to ensure it's truly robust.
+- Pragmatic Programmers stay cautious, aware of their own limits and the risks of attacks. Each
+  environment has unique security needs that must be carefully addressed.
+- A few basic principles that you should always bear in mind:
+  - The attack surface includes all points where data enters, exits, or triggers actions. Reduce it
+    by limiting access, simplifying code, and securing all exposed components.
+  - Use the least privilege for the shortest time needed. Limit access scope and apply fine-grained
+    permissions to reduce risk, just like minimizing attack surface. Less is indeed more.
+  - Default settings should favor security, even if less convenient. Let users choose to lower
+    security if needed, like showing passwords for accessibility in low-risk situations.
+  - Never store sensitive data like credentials or personal info in plain text or version control.
+    Use encryption and manage secrets separately through config files or environment variables.
+  - Always apply security updates promptly. Delaying patches leaves systems open to known exploits
+    and has caused major breaches. This applies to every connected device you use.
+
+``` md
+Tip 72: Keep It Simple and Minimize Attack Surfaces
+```
+
+``` md
+Tip 73: Apply Security Patches Quickly
+```
+
+- Avoid writing your own encryption or authentication. Even tiny errors can compromise security.
+  Rely on trusted libraries and providers who follow best practices.
+
+### 44. Naming Things
+
+- Names matter. Every name in code should reflect the role it plays, clearly showing intent and
+  meaning to others and to your future self.
+- Before creating anything, ask why it exists. Thinking about its purpose helps clarify its role,
+  often revealing flaws in your approach when you can't name it meaningfully.
+- Naming clarifies meaning and improves code understanding, though not every name must be perfect.
+- Honor the Culture: Single-letter variables like i, j, or k are fine when they follow language
+  norms, but using them outside their expected context can be confusing and should be avoided.
+- Consistency: Every project has unique jargon, so teams must use terms consistently. Frequent
+  communication and pair programming help share and align this vocabulary naturally.
+- Renaming Is Even Harder: As code changes, update misleading names immediately. If a name no longer
+  reflects its intent, fix it now. Regression tests will help catch anything you miss.
+
+``` md
+Tip 74: Name Well; Rename When Needed
+```
 
 ---
