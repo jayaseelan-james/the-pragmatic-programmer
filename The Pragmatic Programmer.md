@@ -53,6 +53,11 @@
     - [42. Property-Based Testing](#42-property-based-testing)
     - [43. Stay Safe Out There](#43-stay-safe-out-there)
     - [44. Naming Things](#44-naming-things)
+  - [Chapter 8: Before the Project](#chapter-8-before-the-project)
+    - [45. The Requirements Pit](#45-the-requirements-pit)
+    - [46. Solving Impossible Puzzles](#46-solving-impossible-puzzles)
+    - [47. Working Together](#47-working-together)
+    - [48. The Essence of Agility](#48-the-essence-of-agility)
 
 ---
 
@@ -1308,5 +1313,134 @@ Tip 73: Apply Security Patches Quickly
 ``` md
 Tip 74: Name Well; Rename When Needed
 ```
+
+---
+
+## Chapter 8: Before the Project
+
+### 45. The Requirements Pit
+
+- Requirements are not simply gathered; they are often hidden under assumptions or may not exist
+  clearly at all, making discovery a complex and uncertain process.
+
+``` md
+Tip 75: No One Knows Exactly What They Want
+```
+
+- In a messy, unclear world, exact specs are rare. A key role of programmers is helping people
+  discover and define what they truly need.
+
+``` md
+Tip 76: Programmers Help People Understand What They Want
+```
+
+- Client needs are often just starting points, not final requirements. Instead of jumping to
+  solutions, treat them as invitations to explore and understand the real problem.
+
+``` md
+Tip 77: Requirements Are Learned in a Feedback Loop
+```
+
+- Pragmatic Programmers help clients understand the impact of their needs through feedback. Use
+  mockups or prototypes to clarify intent, enabling quick adjustments and shared understanding.
+- Gain real insight and build trust by experiencing the client's work firsthand. Observing their
+  tasks helps you understand needs and improves communication.
+
+``` md
+Tip 78: Work with a User to Think Like a User
+```
+
+- Designing around flexible policies allows easy updates through metadata, leading to systems that
+  adapt well to change and are structured for maintainability.
+
+``` md
+Tip 79: Policy Is Metadata
+```
+
+- Tools must match user needs and habits. Features alone are not enough. Early feedback helps reveal
+  when something works in theory but fails in practice or usability.
+- Documenting Requirements:
+  - Detailed requirements documents often fail because clients don't fully know what they want and
+    rarely read them. Such documents serve developers, not clients, and hinder true collaboration.
+  - Requirements should be lightweight and clear, like user stories. Short formats promote clarity,
+    planning, and ongoing feedback between developers and clients.
+- Requirements should be simple, abstract statements of need, not detailed designs or interfaces.
+  Capture core business needs clearly without over-specifying solutions.
+- Scope creep leads to project failure. Prevent it with constant client feedback during iterations,
+  helping them see the real impact of added features and make informed trade-offs.
+- Maintain a shared project glossary to ensure everyone uses consistent terms. Clear, accessible
+  definitions prevent confusion and improve collaboration across the team.
+
+``` md
+Tip 80: Use a Project Glossary
+```
+
+### 46. Solving Impossible Puzzles
+
+- Solving problems requires identifying true constraints and recognizing your freedom within them.
+  It is not about thinking inside or outside the box, but understanding where the box really is.
+
+``` md
+Tip 81: Don't Think Outside the Box—Find the Box
+```
+
+- When stuck on a tough problem, take a break. Shifting focus gives your subconscious mind space to
+  work, often leading to surprising and effective solutions.
+- People often solve complex problems better when distracted. If you can't step away, try explaining
+  it to someone. Their questions or your own words may reveal the answer.
+- *Eureka* moments come from a well-fed brain. Learn from daily feedback, build experience, stay
+  calm and reflect often.
+
+### 47. Working Together
+
+- Work directly with users as part of the team. Collaborate while coding, not just in meetings, to
+  solve problems and build useful software together.
+- Pair Programming:
+  - Pair programming combines two minds on one task, blending different skills, experiences, and
+    focus levels to improve problem-solving and code quality.
+  - In pair programming, one focuses on code syntax while the other considers higher-level issues.
+    This division boosts problem-solving by using more collective brainpower.
+  - Having a peer present encourages better coding habits and discourages sloppy shortcuts, leading
+    to cleaner, higher-quality software.
+- Mob Programming:
+  - Mob programming extends pair programming to a whole group. With one typist and many minds, it
+    boosts collaboration and brings diverse insights to the same problem.
+  - Mob programming is live, collaborative coding that can involve users, sponsors, and testers, not
+    just developers, to improve communication and build better solutions together.
+- Explore different coding styles like solo, pair, or mob programming. Each has its own practices
+  and benefits, so research first and start small before using them on critical code.
+
+``` md
+Tip 82: Don't Go into the Code Alone
+```
+
+### 48. The Essence of Agility
+
+- Agile is how you work, not who you are. It's about adapting to change with flexibility and using
+  responsive practices as a team or individual.
+
+``` md
+Tip 83: Agile Is Not a Noun; Agile Is How You Do Things
+```
+
+- We are uncovering better ways of developing software by doing it and helping others do it. Through
+  this work we have come to value:
+  - Individuals and interactions over processes and tools
+  - Working software over comprehensive documentation
+  - Customer collaboration over contract negotiation
+  - Responding to change over following a plan
+- Agile values the left side of the manifesto more than the right. Prioritizing the right-side means
+  straying from the core principles the manifesto was built on.
+- Agility means adapting to change, not following a fixed plan. Decisions must be based on context
+  and feedback, not rigid rules or one-size-fits-all methods.
+- No one can tell you exactly what to do, but the key is handling uncertainty by gathering feedback
+  and using it to guide your actions and decisions. The recipe for working in an agile way:
+  - Work out where you are.
+  - Make the smallest meaningful step towards where you want to be.
+  - Evaluate where you end up, and fix anything you broke.
+- Using feedback at all levels improves both code and process. It helps refine design, rethink
+  requirements, and evolve team practices. Without it, a team isn't truly agile.
+- Good design makes change easy, which supports agility. If changes are painless, feedback loops
+  stay effective and teams can adapt freely without fear or hesitation.
 
 ---
