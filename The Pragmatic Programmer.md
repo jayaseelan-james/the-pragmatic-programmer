@@ -25,7 +25,7 @@
     - [18. Power Editing](#18-power-editing)
     - [19. Version Control](#19-version-control)
     - [20. Debugging](#20-debugging)
-    - [21. Text manipulation](#21-text-manipulation)
+    - [21. Text Manipulation](#21-text-manipulation)
     - [22. Engineering Daybooks](#22-engineering-daybooks)
   - [Chapter 4: Pragmatic Paranoia](#chapter-4-pragmatic-paranoia)
     - [23. Design by Contract](#23-design-by-contract)
@@ -70,9 +70,7 @@
 
 ## Preface
 
-What Makes a Pragmatic Programmer?
-
-- Characteristics of a Pragmatic programmer:
+- Characteristics of a Pragmatic Programmer:
   - Early adopter/fast adapter: You have a knack for tech and techniques, and love experimenting.
   - Inquisitive: You tend to ask questions and collect small, useful facts.
   - Critical thinker: You rarely accept things at face value without first gathering the facts.
@@ -84,23 +82,20 @@ What Makes a Pragmatic Programmer?
   Tip 1: Care About Your Craft
   ```
 
-  - There is no point in developing software unless you care about doing it well.
+- There is no point in developing software unless you care about doing it well.
 
-  ``` md
-  Tip 2: Think! About Your Work
-  ```
+``` md
+Tip 2: Think! About Your Work
+```
 
-  - Constantly critique your work in real-time. The old IBM corporate motto, THINK!, is the
+- Constantly critique your work in real-time. The old IBM corporate motto, THINK!, is the
 Pragmatic Programmer's mantra.
 
-Individual Pragmatists, Large Teams
+- Individual Pragmatists, Large Teams: Within the overall structure of a project, there is always
+  room for individuality and craftsmanship.
 
-- Within the overall structure of a project, there is always room for individuality and
-  craftsmanship.
-
-It's a Continuous Process
-
-- Every day, work to refine the skills you have and to add new tools to your repertoire.
+- It's a Continuous Process: Every day, work to refine the skills you have and to add new tools to
+your repertoire.
 
 ---
 
@@ -188,7 +183,7 @@ Tip 8: Make Quality a Requirements Issue
 ```
 
 - Great software today is often preferable to the fantasy of perfect software tomorrow.
-- Know when to stop: Avoid ruining a good program through overembellishment and overrefinement.
+- Know when to stop: Avoid ruining a good program through over-embellishment and over-refinement.
 
 ### 6. Your Knowledge Portfolio
 
@@ -301,11 +296,12 @@ Tip 15: DRY—Don't Repeat Yourself
 
 - DRY isn't just about avoiding code duplication; it's about eliminating redundant expressions of
   knowledge or intent.
-- Types of duplication:
+- Types of Duplication:
   - Duplication in Code: Identical code isn't a DRY violation if it represents distinct knowledge;
     coincidence isn't duplication.
-  - Duplication in Documentation: Comments should add value, not compensate for poor naming or
-    layout; clear names and source details uphold DRY.
+  - Duplication in Documentation:
+    - Comments should add value, not compensate for poor naming or layout; clear names and source
+      details uphold DRY.
     - Data structures hold knowledge; DRY can be violated for performance, but keep such impacts
       localized within the class.
   - Representational Duplication: Interfacing with external systems introduces unavoidable DRY
@@ -327,13 +323,11 @@ Tip 17: Eliminate Effects Between Unrelated Things
 ```
 
 - Benefits of Orthogonality:
-  - Gain Productivity:
-    - Orthogonal components simplify development, promote reuse, reduce testing, and enhance
-      functionality with minimal effort.
-  - Reduce Risk:
-    - Orthogonality reduces risks, simplifies fixes, improves testing, and minimizes dependency on
-        specific vendors or platforms.
-- Design
+  - Gain Productivity: Orthogonal components simplify development, promote reuse, reduce testing,
+    and enhance functionality with minimal effort.
+  - Reduce Risk: Orthogonality reduces risks, simplifies fixes, improves testing, and minimizes
+    dependency on specific vendors or platforms.
+- Design:
   - Orthogonal systems use modular, layered components, enabling abstraction, flexibility, and
     reduced dependency risks.
   - Test orthogonal design by ensuring changes affect only one module.
@@ -390,13 +384,13 @@ Tip 20: Use Tracer Bullets to Find the Target
   - You have something to demonstrate
   - You have a better feel for progress
 
-- Tracer Bullets Don't Always Hit Their Target
+- Tracer Bullets Don't Always Hit Their Target:
   - Tracer bullets help adjust direction when uncertain, allowing quick changes with lean
     development to stay on target.
   - Tracer code allows quick, cost-effective feedback, ensuring users see a real, functional version
     of the application.
 
-- Tracer Code versus Prototyping
+- Tracer Code versus Prototyping:
   - Tracer code differs from prototyping by being reusable and maintainable, rather than discarded
     after exploring concepts.
   - Prototyping helps explore ideas quickly, but the code is discarded after decisions are made.
@@ -415,14 +409,13 @@ Tip 20: Use Tracer Bullets to Find the Target
 Tip 21: Prototype to Learn
 ```
 
-- How to Use Prototypes
-  - A prototype can ignore,
-    - Correctness: You may be able to use dummy data where appropriate.
-    - Completeness: The prototype may function only in a very limited sense.
-    - Robustness: Error checking is likely to be incomplete or missing entirely.
-    - Style: Prototype code shouldn't have much in the way of comments or documentation.
+- How to Use Prototypes: A prototype can ignore,
+  - Correctness: You may be able to use dummy data where appropriate.
+  - Completeness: The prototype may function only in a very limited sense.
+  - Robustness: Error checking is likely to be incomplete or missing entirely.
+  - Style: Prototype code shouldn't have much in the way of comments or documentation.
 
-- Prototyping Architecture
+- Prototyping Architecture:
   - Prototypes model entire systems without needing fully functional modules, using tools like
     whiteboards or Post-its to visualize the architecture.
   - Specific areas you may want to look for in the architectural prototype:
@@ -471,7 +464,7 @@ Tip 23: Estimate to Avoid Surprises
   - Keep Track of Your Estimating Prowess: Analyze errors to improve future estimates by
     understanding mismatched parameters or flawed models.
 
-- Estimating Project Schedules
+- Estimating Project Schedules:
   - Real-world estimates use scenario ranges such as optimistic, most likely and a pessimistic
     estimate. Using a range of values reduces estimation errors, but simply relying on formulas for
     large tasks may still lead to inaccurate estimates.
@@ -488,7 +481,7 @@ Tip 23: Estimate to Avoid Surprises
 Tip 24: Iterate the Schedule with the Code
 ```
 
-- What to Say when asked for an estimate?
+- What to say when asked for an estimate?
   - Say "I'll get back to you." Taking time to review the steps in this section leads to better
     estimates than quick responses.
 
@@ -506,9 +499,9 @@ Tip 24: Iterate the Schedule with the Code
 Tip 25: Keep Knowledge in Plain Text
 ```
 
-- The Power of Text
+- The Power of Text:
   - Insurance Against Obsolescence: Human-readable, self-describing data outlives applications,
-    remaining usable and parseable even with partial format knowledge.
+    remaining usable and parsable even with partial format knowledge.
   - Leverage: Plain text is universally compatible with tools like version control, editors, and
     command-line utilities.
   - Easier Testing: Plain text simplifies creating, updating test data and analyzing regression test
@@ -536,7 +529,7 @@ Tip 27: Achieve Editor Fluency
 ```
 
 - Fluency minimizes editing effort, enabling thoughts to flow seamlessly, like an experienced
-  driver’s instinctive control.
+  driver's instinctive control.
 - Moving Towards Fluency:
   - Master Editor efficiency by identifying repetitive tasks, learning better methods, and
     practicing them until instinctive.
@@ -564,71 +557,69 @@ Tip 28: Always Use Version Control
 Tip 29: Fix the Problem, Not the Blame
 ```
 
-- A Debugging Mindset
+- A Debugging Mindset:
   - Adopt a calm mindset for debugging; set aside ego defenses, project pressures, and focus on
     comfort and clarity.
-
-  ``` md
-  Tip 30: Don't Panic
-  ```
-
   - Stay calm, avoid denial, and focus on root causes, not just symptoms; resist assumptions like
-    "it's impossible" when debugging.
-- Where to Start
+  "it's impossible" when debugging.
+
+``` md
+Tip 30: Don't Panic
+```
+
+- Where To Start:
   - Start debugging with clean, warning-free code; focus on complex issues, and gather relevant data
     as bug reports may lack precision.
   - Avoid debugging coincidences; ensure accurate observations, and directly observe users for
     detailed, reliable bug reports.
-- Debugging Strategies
+- Debugging Strategies:
   - After forming a hypothesis, verify it by understanding the program's perspective and internal
     behavior.
-  - Reproducing Bugs
-    - The best way to start fixing a bug is to make it reproducible. Then make it reproducible
-      ideally with a single command, to simplify debugging and avoid complex, lengthy steps.
+  - Reproducing Bugs: The best way to start fixing a bug is to make it reproducible. Then make it
+    reproducible ideally with a single command, to simplify debugging and avoid complex, lengthy
+    steps.
 
-    ``` md
-    Tip 31: Failing Test Before Fixing Code
-    ```
+``` md
+Tip 31: Failing Test Before Fixing Code
+```
 
-    ``` md
-    Tip 32: Read the Damn Error message
-    ```
+- Coder In a Strange Land:
 
-  - Bad Results
-    - Use a debugger to confirm bad results, trace call stacks, jot notes to track progress, and use
-      efficient approaches like binary search when needed.
-  - Sensitivity to Input Values
-    - When a program crashes on specific data, test locally, confirm the issue, then isolate
-      problematic input.
-  - Regressions Across Releases
-    - To trace production bugs, identify the specific code change that caused the issue to
-      streamline debugging.
-  - The Binary Chop
-    - To debug a stack trace, use binary search: check the middle frame, narrow down based on the
-      error, and repeat.
-    - To debug dataset issues, split the data and test subsets, repeating the process until
-      identifying the smallest set causing the problem.
-    - To find a bug in releases, create a failing test, then use binary search across versions to
-      narrow the issue, aided by version control tools.
-  - Logging and/or Tracing
-    - Debuggers show the current state, but tracing statements are crucial for tracking errors over
-      time, especially in time-sensitive systems.
-    - Add consistent tracing statements as you move through the call tree, allowing for easy parsing
-      and deeper insight into the code's execution.
-  - Rubber Ducking
-    - Explaining a problem to someone else (or even an object) helps identify issues by forcing you
-      to verbalize assumptions and gain new insights.
-  - Process of Elimination
+  ``` md
+  Tip 32: Read the Damn Error message
+  ```
+
+  - Bad Results: Use a debugger to confirm bad results, trace call stacks, jot notes to track
+    progress, and use efficient approaches like binary search when needed.
+  - Sensitivity to Input Values: When a program crashes on specific data, test locally, confirm the
+    issue, then isolate problematic input.
+  - Regressions Across Releases: To trace production bugs, identify the specific code change that
+    caused the issue to streamline debugging.
+- The Binary Chop:
+  - To debug a stack trace, use binary search: check the middle frame, narrow down based on the
+    error, and repeat.
+  - To debug dataset issues, split the data and test subsets, repeating the process until
+    identifying the smallest set causing the problem.
+  - To find a bug in releases, create a failing test, then use binary search across versions to
+    narrow the issue, aided by version control tools.
+  - Logging and/or Tracing:
+    - Debuggers show the current state, but tracing statements are crucial for tracking errors
+      over time, especially in time-sensitive systems.
+    - Add consistent tracing statements as you move through the call tree, allowing for easy
+      parsing and deeper insight into the code's execution.
+  - Rubber Ducking: Explaining a problem to someone else (or even an object) helps identify issues
+    by forcing you to verbalize assumptions and gain new insights.
+  - Process of Elimination:
     - When debugging, assume the issue is with your application code, not the OS, compiler, or
       third-party products, and rule out your code first.
+    - If a system breaks after one change, that change is likely the cause, even if it seems
+      unlikely. New software versions can introduce unexpected issues.
 
     ``` md
     Tip 33: "select" Isn't Broken
     ```
 
-    - If a system breaks after one change, that change is likely the cause, even if it seems
-      unlikely. New software versions can introduce unexpected issues.
-- The Element of Surprise
+- The Element of Surprise:
   - When surprised by a bug, reassess your assumptions and test boundary conditions. Even long-used
     code may still contain hidden issues.
   - Surprising failures often mean your assumptions are wrong. Don't skip over code you trust; prove
@@ -644,7 +635,7 @@ Tip 29: Fix the Problem, Not the Blame
     improving testing hooks or adding a log file analyzer for future ease.
   - If the bug stems from a wrong assumption, discuss it with the team to prevent misunderstandings.
     Addressing it ensures fewer surprises in the future.
-- Debugging Checklist
+- Debugging Checklist:
   - Determine if the reported problem is a direct result of the underlying bug or just a symptom of
     a deeper issue.
   - Determine if the bug is in the framework, the OS, or your own code by systematically ruling out
@@ -656,7 +647,7 @@ Tip 29: Fix the Problem, Not the Blame
   - Check if the conditions causing the bug exist elsewhere in the system. Look for potential hidden
     bugs that could emerge under similar circumstances.
 
-### 21. Text manipulation
+### 21. Text Manipulation
 
 - Text manipulation languages, like awk, sed, Python, and Ruby, are powerful tools for quick
   prototyping and automation. Though tricky, they can significantly reduce development time and
@@ -683,16 +674,16 @@ Tip 35: Learn a Text Manipulation Language
 Tip 36: You Can't Write Perfect Software
 ```
 
-- No one in the brief history of computing has ever written a piece of perfect software. It’s
-  unlikely that you’ll be the first.
-- Good drivers anticipate trouble; good coders do the same, defending against others' and their own
-  potential mistakes.
+- No one in the brief history of computing has ever written a piece of perfect software. It's
+  unlikely that you'll be the first.
+- Good drivers anticipate trouble; good coders do the same, they look out for trouble before it
+  happens.
 
 ### 23. Design by Contract
 
 - Contracts define mutual rights, responsibilities, and repercussions—an idea that applies equally
   to software module interactions.
-- DBC
+- DBC:
   - Design by Contract (DBC) ensures program correctness by documenting software modules' rights,
     responsibilities, and expected outcomes. The expectations and claims as follows:
     - Preconditions: Callers must ensure valid data to meet those requirements before invoking them.
@@ -707,7 +698,7 @@ Tip 37: Design with Contracts
 
 - Orthogonality recommended writing “shy” code. Here, the emphasis is on “lazy” code: : be strict in
   what you will accept before you begin, and promise as little as possible in return.
-- Implementing DBC
+- Implementing DBC:
   - Defining input range, boundaries, and promises to deliver (and what it doesn't) improves
     software design.
   - Assertions
@@ -715,7 +706,7 @@ Tip 37: Design with Contracts
       Assertions aid but lack inheritance support and automation.
 - DBC and Crashing Early: Use DBC to validate conditions, crash early, and get detailed errors,
   avoiding hidden bugs.
-- Semantic Invariants
+- Semantic Invariants:
   - You can use semantic invariants to express inviolate requirements, a kind of "philosophical
     contract."
   - Distinguish semantic invariants from changeable policies; document invariants clearly for
@@ -727,7 +718,7 @@ Tip 37: Design with Contracts
   "impossible" with proper error checks and defaults.
 - Pragmatic Programmers tell themselves that if there is an error, something very, very bad has
   happened.
-- Catch and Release Is For Fish
+- Catch and Release Is For Fish:
   - Avoid catching all exceptions and re-throwing it; it reduces verbosity, uncouples code, and
   ensures new exceptions propagate automatically without updates.
 
@@ -735,7 +726,7 @@ Tip 37: Design with Contracts
 Tip 38: Crash Early
 ```
 
-- Crash, Don't Trash
+- Crash, Don't Trash:
   - Early crashing avoids further damage.
   - Terminate programs when the impossible occurs; continuing risks unreliable actions. Handle
     cleanups and exit immediately.
@@ -756,7 +747,7 @@ Tip 39: Use Assertions to Prevent the Impossible
   never happen.
 - Assertions with side effects can result in Heisenbug, where debugging code unintentionally causes
   new errors or alters system behavior.
-- Leave Assertions Turned On
+- Leave Assertions Turned On:
   - Assertions should remain active in production to catch errors missed during testing, as bugs and
     unexpected issues can arise in real environments.
   - Disabling assertions in production is risky. If performance issues arise, only disable specific
@@ -778,13 +769,13 @@ Tip 40: Finish What You Start
 Tip 41: Act Locally
 ```
 
-- Nest Allocations
+- Nest Allocations:
   - Deallocate resources in reverse order of allocation to avoid orphaning resources with references
     to each other.
   - Always allocate resources in the same order across your code to minimize the risk of deadlock.
 - Objects and Exceptions: Encapsulate resources in classes for auto-allocation and deallocation via
   constructors/destructors, aiding exception-safe cleanup.
-- Balancing and Exceptions
+- Balancing and Exceptions:
   - To ensure resource cleanup during exceptions, use variable scope or a try-finally block for
     controlled deallocation.
   - An Exception Antipattern: If resource allocation fails, deallocation in finally will act on an
@@ -796,8 +787,8 @@ Tip 41: Act Locally
       contained data.
     - Deallocating the top-level structure orphans any unreferenced substructures it pointed to.
     - The top-level structure refuses to deallocate itself if it contains any substructures.
-- Checking the Balance: Pragmatic Programmers recommend using wrappers to track resource allocations
-  and deallocations, ensuring no memory leaks occur.
+- Checking the Balance: Pragmatic Programmers recommend using wrappers to track resource allocation
+  and deallocation, ensuring no memory leaks occur.
 
 ### 27. Don't Outrun Your Headlights
 
@@ -812,9 +803,7 @@ Tip 42: Take Small steps—Always
   limit in decision-making.
 - A task is too big if it requires guessing the future. Design for maintainability, but focus on
   replaceability over speculation.
-- Black Swans
-  - Rare, unpredictable events shape history. Predicting the future is tricky—like past tech debates
-    that missed the rise of the web.
+- Black Swans: Rare, unpredictable events shape history. Predicting the future is tricky.
 
 ``` md
 Tip 43: Avoid Fortune-Telling
@@ -847,7 +836,7 @@ Tip 45: Tell, Don't Ask
   and spreads implementation details.
 - Tell-don't-ask is a guideline, not a rule. In some cases, exposing key objects makes sense because
   they have their own identity.
-- Law of Demeter
+- Law of Demeter:
   - The Law of Demeter (LoD) reduces coupling and keeps functions clean. A method in class C should
     only call:
     - Its own instance methods
@@ -861,7 +850,7 @@ Tip 46: Don't Chain Method Calls
 
 - The one-dot rule can be ignored for stable libraries, but app code and third-party APIs are likely
   to change and should be handled carefully.
-- Evils of Globalization
+- Evils of Globalization:
   - Global data increases coupling, making changes risky and code harder to reuse or test. Clean
     interfaces help decouple and simplify maintenance.
   - Wrapping global data in a singleton does not remove coupling. Adding methods helps, but it is
@@ -922,8 +911,8 @@ Tip 50: Don't Hoard State; Pass it Around
 Tip 51: Don't Pay Inheritance Tax
 ```
 
-- Better Alternatives
-  - Interfaces and Protocols
+- Better Alternatives:
+  - Interfaces and Protocols:
     - OO languages allow classes to implement multiple behaviors, like a Car class implementing
       Drivable and Locatable.
     - Declarations define required methods (e.g., getSpeed, stop) for classes implementing behaviors
@@ -934,14 +923,14 @@ Tip 51: Don't Pay Inheritance Tax
   Tip 52: Prefer Interfaces to Express Polymorphism
   ```
 
-  - Delegation
+  - Delegation:
     - Inheritance leads to large classes with unused methods, losing control over the interface.
 
   ``` md
   Tip 53: Delegate to Services: Has-A Trumps Is-A
   ```
 
-  - Mixins, Traits, Categories, Protocol Extensions, ...
+  - Mixins, Traits, Categories, Protocol Extensions, ...:
     - A mixin adds new functionality to classes without inheritance, combining original capabilities
       with additional functions, even without source code access.
     - The key idea is merging functionality between existing and new things through these
@@ -967,12 +956,12 @@ Tip 55: Parameterize Your App Using External Configuration
   - Credentials for external services
   - Logging levels and location
   - IP address, port, and license keys
-- Static Configuration
+- Static Configuration:
   - Store configuration in flat files (like YAML/JSON) or databases, depending on structure and
     change frequency. Load as a global data structure at startup.
   - Preferably, wrap configuration data in a thin API to decouple code from representation details,
     avoiding direct global access.
-- Configuration as a Service
+- Configuration as a Service:
   - Use a service API to store configuration data externally, rather than relying on flat files or
     databases.
   - Storing configuration behind a service API allows sharing, global updates, controlled access, a
@@ -984,8 +973,10 @@ Tip 55: Parameterize Your App Using External Configuration
 
 ## Chapter 6: Concurrency
 
-- Concurrency is essential in real-world systems; without it, apps feel slow and underuse the hardware’s potential.
-- Temporal coupling limits flexibility by enforcing unnecessary code order, making systems harder to change and slower to respond.
+- Concurrency is essential in real-world systems; without it, apps feel slow and underuse the
+  hardware's potential.
+- Temporal coupling limits flexibility by enforcing unnecessary code order, making systems harder to
+  change and slower to respond.
 
 ### 33. Breaking Temporal Coupling
 
@@ -1163,7 +1154,7 @@ Tip 64: Test Your Estimates
 
 - Best Isn't Always Best:
   - Choose algorithms pragmatically. The fastest one is not always the best for the job. Complex
-    algorithms can have setup costs that may outweigh their benefits for small inputs.
+    algorithms can have set-up costs that may outweigh their benefits for small inputs.
   - Avoid premature optimization. Focus on improving code only after confirming the algorithm is a
     true bottleneck worth your time and effort.
 
@@ -1217,7 +1208,7 @@ Tip 67: A Test Is the First User of Your Code
     deeper understanding before implementation.
   - Thinking about tests early reveals clearer logic, simplifies code, and helps you handle
     boundaries and errors better before writing a single line.
-- Test-Driven Development: The basic cycle of TDD is:
+- Test-Driven Development: The basic cycle of TDD is,
   - Decide on a small piece of functionality you want to add.
   - Write a test that will pass once that functionality is implemented.
   - Run all tests. Verify that the only failure is the one you just wrote.
@@ -1436,8 +1427,6 @@ Tip 83: Agile Is Not a Noun; Agile Is How You Do Things
   - Working software over comprehensive documentation
   - Customer collaboration over contract negotiation
   - Responding to change over following a plan
-- Agile values the left side of the manifesto more than the right. Prioritizing the right-side means
-  straying from the core principles the manifesto was built on.
 - Agility means adapting to change, not following a fixed plan. Decisions must be based on context
   and feedback, not rigid rules or one-size-fits-all methods.
 - No one can tell you exactly what to do, but the key is handling uncertainty by gathering feedback
@@ -1492,11 +1481,11 @@ Tip 86: Organize Fully Functional Teams
 
 ### 50. Coconuts Don't Cut It
 
-- Context Matters
+- Context Matters:
   - Choose tools and methods based on your context, not trends. What works for others may not suit
     your team, goals, or constraints. Avoid blindly copying popular practices.
-  - To know what works, try it. Test ideas on a small scale, keep what helps, and drop what doesn’t.
-  Success comes from adapting, not copying others’ processes.
+  - To know what works, try it. Test ideas on a small scale, keep what helps, and drop what doesn't.
+  Success comes from adapting, not copying others' processes.
 
 ``` md
 Tip 87: Do What Works, Not What's Fashionable
@@ -1530,8 +1519,18 @@ Tip 89: Use Version Control to Drive Builds, Tests, and Releases
 - Ruthless and Continuous Testing:
   - Pragmatic Programmers test aggressively to catch bugs early. They use both unit and integration
     tests to find defects and improve coverage by fixing weak spots.
+
+  ``` md
+  Tip 90: Test Early, Test Often, Test Automatically
+  ```
+
   - Start testing early to catch small bugs before they grow. Writing many unit tests builds
     confidence, saves time long term, and helps ensure low-defect, high-quality code.
+
+  ``` md
+  Tip 91: Coding Ain't Done 'Til ALl the Tests Run
+  ```
+
   - Automated builds should run a full range of tests in an environment that mirrors production.
     This helps catch bugs early and ensures realistic, reliable testing results.
   - Unit tests check individual modules and form the foundation for all other testing. Once modules
@@ -1542,27 +1541,20 @@ Tip 89: Use Version Control to Drive Builds, Tests, and Releases
     stated wants. A correct system is only useful if it solves the right problem.
   - Since tests aren't perfect either, test them too. Intentionally trigger bugs to ensure your
     tests detect them, just like checking a security system by trying to break in.
+
+  ``` md
+  Tip 92: Use Saboteurs to Test Your Testing
+  ```
+
   - You can never fully know if testing is complete. Coverage tools help, but hitting every line
     isn't enough. Real complexity lies in the many possible program states, not just code paths.
+
+  ``` md
+  Tip 93: Test State Coverage, Not Code Coverage
+  ```
+
   - Use property-based testing to explore how your code handles unexpected states. Let the computer
     generate input based on defined contracts and invariants for thorough testing.
-
-``` md
-Tip 90: Test Early, Test Often, Test Automatically
-```
-
-``` md
-Tip 91: Coding Ain't Done 'Til ALl the Tests Run
-```
-
-``` md
-Tip 92: Use Saboteurs to Test Your Testing
-```
-
-``` md
-Tip 93: Test State Coverage, Not Code Coverage
-```
-
 - Tightening the Net: The key to strong testing is adding a test for every escaped bug. Never let
   the same issue slip by twice.
 
@@ -1570,7 +1562,7 @@ Tip 93: Test State Coverage, Not Code Coverage
 Tip 94: Find Bugs Once
 ```
 
-- Full Automation
+- Full Automation:
   - Modern development depends on automated scripts because people aren't perfectly repeatable.
     Scripts ensure consistency and traceability through version control.
   - Automation is essential. Manual steps break consistency and reliability, making builds and
@@ -1620,7 +1612,7 @@ Tip 97: Sign Your Work
   power comes an extraordinary responsibility to use imagination wisely and build a better future.
 - Developers hold great responsibility. Whether building embedded or large-scale systems, the impact
   of software can shape lives for better or worse. The choices you make truly matter.
-- The Moral Compass
+- The Moral Compass:
   - With software now shaping everyday life, developers must stay vigilant. Always ask: Have I
     protected the user? Would I use this myself? These guide responsible development.
   - Ask yourself if you've done your best to protect users. If you haven't planned for risks and
