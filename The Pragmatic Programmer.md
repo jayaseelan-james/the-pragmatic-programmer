@@ -58,6 +58,13 @@
     - [46. Solving Impossible Puzzles](#46-solving-impossible-puzzles)
     - [47. Working Together](#47-working-together)
     - [48. The Essence of Agility](#48-the-essence-of-agility)
+  - [Chapter 9: Pragmatic Projects](#chapter-9-pragmatic-projects)
+    - [49. Pragmatic Teams](#49-pragmatic-teams)
+    - [50. Coconuts Don't Cut It](#50-coconuts-dont-cut-it)
+    - [51. Pragmatic Starter Kit](#51-pragmatic-starter-kit)
+    - [52. Delight Your Users](#52-delight-your-users)
+    - [53. Pride and Prejudice](#53-pride-and-prejudice)
+  - [Postface](#postface)
 
 ---
 
@@ -1442,5 +1449,198 @@ Tip 83: Agile Is Not a Noun; Agile Is How You Do Things
   requirements, and evolve team practices. Without it, a team isn't truly agile.
 - Good design makes change easy, which supports agility. If changes are painless, feedback loops
   stay effective and teams can adapt freely without fear or hesitation.
+
+---
+
+## Chapter 9: Pragmatic Projects
+
+### 49. Pragmatic Teams
+
+- Pragmatic techniques work even better in small, stable teams built on trust and familiarity. True
+  teams are tight-knit groups, not large or constantly shifting collections.
+
+``` md
+Tip 84: Maintain Small, Stable Teams
+```
+
+- Quality is a shared team responsibility. It cannot be delegated or enforced by one person. Every
+  member must care, contribute, and fix small issues to maintain high standards.
+- Teams and individuals can miss gradual changes in projects. Stay alert to shifts in scope, time,
+  or features. Track changes and stay aware to avoid being caught off guard.
+- To grow and improve, teams must schedule time for more than features. Plan for maintenance,
+  process reviews, tech exploration, and shared learning to stay effective and innovative.
+
+``` md
+Tip 85: Schedule It to Make It Happen
+```
+
+- A team should communicate clearly both internally and externally. A strong identity, consistent
+  messaging, and even a fun name or logo can boost team presence and collaboration.
+- Avoid duplication and siloed work by fostering fast and low-friction communication. Quick access
+  to teammates helps share knowledge, reduce waste, and keep the team aligned.
+- Projects need diverse skills, but dividing teams by role causes delays. Cross-functional teams
+  with fast feedback build better software and adapt more effectively.
+
+``` md
+Tip 86: Organize Fully Functional Teams
+```
+
+- Automate tasks like formatting, testing, and deployment to ensure consistency and reliability.
+  Teams should build and use tools that streamline development and delivery.
+- Teams thrive when individuals have room to shine. Provide just enough structure to guide them and
+  deliver value, without overcomplicating or controlling the process.
+
+### 50. Coconuts Don't Cut It
+
+- Context Matters
+  - Choose tools and methods based on your context, not trends. What works for others may not suit
+    your team, goals, or constraints. Avoid blindly copying popular practices.
+  - To know what works, try it. Test ideas on a small scale, keep what helps, and drop what doesn’t.
+  Success comes from adapting, not copying others’ processes.
+
+``` md
+Tip 87: Do What Works, Not What's Fashionable
+```
+
+- Methodologies exist to help people work together, not to be followed blindly. Take what works from
+  each method, adapt it to your context, and focus on outcomes over the rules.
+- The Real Goal: Aim to deliver working software on demand. Shorten delivery cycles gradually,
+  moving from years to months, weeks, days, and eventually whenever it provides real user value.
+
+``` md
+Tip 88: Deliver When Users Need It
+```
+
+### 51. Pragmatic Starter Kit
+
+- The Pragmatic Starter Kit has three critical and interrelated items:
+  - Version Control
+  - Regression Testing
+  - Full Automation
+- Drive With Version Control:
+  - Keep everything needed to build and deploy your project in version control. This enables
+    automated, reliable builds and releases using reproducible environments.
+  - Builds, tests, and deployments triggered by version control enable low-ceremony releases and
+    true continuous delivery, decoupled from any single machine or developer.
+
+``` md
+Tip 89: Use Version Control to Drive Builds, Tests, and Releases
+```
+
+- Ruthless and Continuous Testing:
+  - Pragmatic Programmers test aggressively to catch bugs early. They use both unit and integration
+    tests to find defects and improve coverage by fixing weak spots.
+  - Start testing early to catch small bugs before they grow. Writing many unit tests builds
+    confidence, saves time long term, and helps ensure low-defect, high-quality code.
+  - Automated builds should run a full range of tests in an environment that mirrors production.
+    This helps catch bugs early and ensures realistic, reliable testing results.
+  - Unit tests check individual modules and form the foundation for all other testing. Once modules
+    pass, test their interactions across the system to ensure everything works together.
+  - Integration testing ensures subsystems work well together. It's an extension of unit testing
+    that checks if contracts between parts are honored, helping catch common system bugs.
+  - Once you have a working interface or prototype, test if it meets real user needs, not just the
+    stated wants. A correct system is only useful if it solves the right problem.
+  - Since tests aren't perfect either, test them too. Intentionally trigger bugs to ensure your
+    tests detect them, just like checking a security system by trying to break in.
+  - You can never fully know if testing is complete. Coverage tools help, but hitting every line
+    isn't enough. Real complexity lies in the many possible program states, not just code paths.
+  - Use property-based testing to explore how your code handles unexpected states. Let the computer
+    generate input based on defined contracts and invariants for thorough testing.
+
+``` md
+Tip 90: Test Early, Test Often, Test Automatically
+```
+
+``` md
+Tip 91: Coding Ain't Done 'Til ALl the Tests Run
+```
+
+``` md
+Tip 92: Use Saboteurs to Test Your Testing
+```
+
+``` md
+Tip 93: Test State Coverage, Not Code Coverage
+```
+
+- Tightening the Net: The key to strong testing is adding a test for every escaped bug. Never let
+  the same issue slip by twice.
+
+``` md
+Tip 94: Find Bugs Once
+```
+
+- Full Automation
+  - Modern development depends on automated scripts because people aren't perfectly repeatable.
+    Scripts ensure consistency and traceability through version control.
+  - Automation is essential. Manual steps break consistency and reliability, making builds and
+    deployments fragile and less repeatable, especially in cloud environments.
+
+``` md
+Tip 95: Don't Use Manual Procedures
+```
+
+### 52. Delight Your Users
+
+- Developers aim to solve users' real problems, not just deliver code. True success means
+  understanding their goals and working iteratively to meet needs beyond written specs.
+- To uncover true expectations, ask how success will be measured after the project ends. Focus on
+  business value, not just features, as that's what truly defines success.
+- After understanding the expectations, start thinking about how you can deliver against them:
+  - Make sure everyone on the team is totally clear about these expectations.
+  - When making decisions, think about which path forward moves closer to those expectations.
+  - Challenge requirements if better ideas align more closely with the project's true goals.
+  - Continue to think about these expectations as you progress through the project.
+- Developers gain insight across domains and can spot better solutions. Build trust, solve real
+  problems, and think like a problem solver to truly delight clients.
+
+``` md
+Tip 96: Delight Users, Don't Just Deliver Code
+```
+
+### 53. Pride and Prejudice
+
+- Pragmatic Programmers embrace responsibility, take pride in their work, and meet challenges with
+  confidence and accountability.
+
+``` md
+Tip 97: Sign Your Work
+```
+
+- Code ownership can create division if not handled with respect. Treat all code as shared and
+  foster mutual respect to support healthy collaboration.
+- Anonymity leads to careless code. Instead, take pride in your work. Ownership, even shared, should
+  reflect professionalism, quality, and accountability others can trust.
+
+---
+
+## Postface
+
+- Software shapes the world, and developers have the power to create and influence it. With that
+  power comes an extraordinary responsibility to use imagination wisely and build a better future.
+- Developers hold great responsibility. Whether building embedded or large-scale systems, the impact
+  of software can shape lives for better or worse. The choices you make truly matter.
+- The Moral Compass
+  - With software now shaping everyday life, developers must stay vigilant. Always ask: Have I
+    protected the user? Would I use this myself? These guide responsible development.
+  - Ask yourself if you've done your best to protect users. If you haven't planned for risks and
+    taken steps to prevent harm, you share responsibility when things go wrong.
+  - Ask yourself: would I want to use this software? If it invades privacy or crosses ethical lines,
+    you're responsible too. Build with integrity, not just innovation.
+
+``` md
+Tip 98: First, Do No Harm
+```
+
+``` md
+Tip 99: Don't Enable Scumbags
+```
+
+- You are shaping the future with every line of code. Build with vision and courage. Say no to
+  harmful choices and yes to creating a world we all want to live in.
+
+``` md
+Tip 100: It's Your Life. Share it. Celebrate it. Build it. AND HAVE FUN!
+```
 
 ---
